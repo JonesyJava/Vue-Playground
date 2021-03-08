@@ -22,9 +22,9 @@
             value changes.
           </p>
           <!-- add a v-model to this input that will reference "myName" within the state object-->
-          <input />
+          <input v-model="state.myName"/>
           <!-- reference "myName" from the state -->
-          <p>{{}}</p>
+          <p>Hello {{state.myName}}</p>
         </div>
         <div class="border p-1">
           <h5>Class Binding</h5>
@@ -37,7 +37,9 @@
           </p>
           <div class="red">
             <!-- add a class binding attribute to the p tag that references the state isActive value -->
-            <p>This text will turn green on active</p>
+            <p :class="{ active: state.isActive }">
+              This text will turn green on active
+              </p>
           </div>
         </div>
       </div>
@@ -53,9 +55,9 @@ export default {
   setup() {
     const state = reactive({
       //create a property called myName and set its value to "type your name here"
-      message: "Super secret message here!",
+      myName: "Michael Jones",
       //change isActive to true
-      isActive: false,
+      isActive: true,
     });
     return { state };
   },
